@@ -1,0 +1,44 @@
+﻿<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <a class="nav-link" href="@Url.Action("Index","Abouts")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Hakkımızda
+            </a>
+            <a class="nav-link" href="@Url.Action("Index","Clients")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Müşteriler
+            </a>
+            <a class="nav-link" href="@Url.Action("Index","Services")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Servisler
+            </a>
+            <a class="nav-link" href="@Url.Action("Index","Portfolios")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Galeri
+            </a>
+            <a class="nav-link" href="@Url.Action("Index","PortfolioCategories")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Galeri Kategorileri
+            </a>
+            <a class="nav-link" href="@Url.Action("Index","Pricings")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Fiyatlandırmalar
+            </a>
+
+            <a class="nav-link" href="@Url.Action("Index","ContactSets")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Temel İletişim Bilgileri
+            </a>
+
+            <a class="nav-link" href="@Url.Action("Index","OtherContacts")">
+                <div class="sb-nav-link-icon"><i class="fas fa-square"></i></div>
+                Diğer İletişim Bilgileri
+            </a>
+        </div>
+    </div>
+    <div class="sb-sidenav-footer">
+        <div class="small">Logged in as:</div>
+        @HttpContext.Current.Session["PanelSession"].ToString()
+    </div>
+</nav>

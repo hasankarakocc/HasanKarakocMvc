@@ -1,0 +1,15 @@
+﻿<section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope-fill"></i><a href="mailto:@ViewBag.Email">@ViewBag.Email</a>
+            <i class="bi bi-phone-fill phone-icon"></i> @ViewBag.PHONE
+        </div>
+        <div class="social-links d-none d-md-block">
+            @foreach (var item in (SelectList)ViewBag.Contacts)
+            {
+                <a href="#" class="@item.Text"><i class="@item.Value"></i></a>
+            }
+
+        </div>
+    </div>
+</section>

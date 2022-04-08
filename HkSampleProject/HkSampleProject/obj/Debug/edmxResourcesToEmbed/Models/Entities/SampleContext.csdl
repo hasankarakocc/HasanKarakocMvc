@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HK_SampleWork_2022_DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SampleContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abouts" EntityType="HK_SampleWork_2022_DbModel.Abouts" />
+    <EntitySet Name="Clients" EntityType="HK_SampleWork_2022_DbModel.Clients" />
+    <EntitySet Name="ContactSets" EntityType="HK_SampleWork_2022_DbModel.ContactSets" />
+    <EntitySet Name="OtherContacts" EntityType="HK_SampleWork_2022_DbModel.OtherContacts" />
+    <EntitySet Name="PortfolioCategories" EntityType="HK_SampleWork_2022_DbModel.PortfolioCategories" />
+    <EntitySet Name="PortfolioDetails" EntityType="HK_SampleWork_2022_DbModel.PortfolioDetails" />
+    <EntitySet Name="Portfolios" EntityType="HK_SampleWork_2022_DbModel.Portfolios" />
+    <EntitySet Name="Pricings" EntityType="HK_SampleWork_2022_DbModel.Pricings" />
+    <EntitySet Name="Users" EntityType="HK_SampleWork_2022_DbModel.Users" />
+    <AssociationSet Name="FK_Portfolios_PortfolioCategories" Association="HK_SampleWork_2022_DbModel.FK_Portfolios_PortfolioCategories">
+      <End Role="PortfolioCategories" EntitySet="PortfolioCategories" />
+      <End Role="Portfolios" EntitySet="Portfolios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PortfolioDetails_Portfolios" Association="HK_SampleWork_2022_DbModel.FK_PortfolioDetails_Portfolios">
+      <End Role="Portfolios" EntitySet="Portfolios" />
+      <End Role="PortfolioDetails" EntitySet="PortfolioDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Abouts">
+    <Key>
+      <PropertyRef Name="AboutsId" />
+    </Key>
+    <Property Name="AboutsId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactSets">
+    <Key>
+      <PropertyRef Name="SetId" />
+    </Key>
+    <Property Name="SetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OtherContacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PortfolioCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Portfolios" Relationship="HK_SampleWork_2022_DbModel.FK_Portfolios_PortfolioCategories" FromRole="PortfolioCategories" ToRole="Portfolios" />
+  </EntityType>
+  <EntityType Name="PortfolioDetails">
+    <Key>
+      <PropertyRef Name="PortfolioId" />
+    </Key>
+    <Property Name="PortfolioId" Type="Int32" Nullable="false" />
+    <Property Name="Header" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Client" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectUrl" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Portfolios" Relationship="HK_SampleWork_2022_DbModel.FK_PortfolioDetails_Portfolios" FromRole="PortfolioDetails" ToRole="Portfolios" />
+  </EntityType>
+  <EntityType Name="Portfolios">
+    <Key>
+      <PropertyRef Name="PortfolioId" />
+    </Key>
+    <Property Name="PortfolioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CategoryId" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="PortfolioCategories" Relationship="HK_SampleWork_2022_DbModel.FK_Portfolios_PortfolioCategories" FromRole="Portfolios" ToRole="PortfolioCategories" />
+    <NavigationProperty Name="PortfolioDetails" Relationship="HK_SampleWork_2022_DbModel.FK_PortfolioDetails_Portfolios" FromRole="Portfolios" ToRole="PortfolioDetails" />
+  </EntityType>
+  <EntityType Name="Pricings">
+    <Key>
+      <PropertyRef Name="PricingId" />
+    </Key>
+    <Property Name="PricingId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="Offers" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Portfolios_PortfolioCategories">
+    <End Type="HK_SampleWork_2022_DbModel.PortfolioCategories" Role="PortfolioCategories" Multiplicity="1" />
+    <End Type="HK_SampleWork_2022_DbModel.Portfolios" Role="Portfolios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PortfolioCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Portfolios">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PortfolioDetails_Portfolios">
+    <End Type="HK_SampleWork_2022_DbModel.Portfolios" Role="Portfolios" Multiplicity="1" />
+    <End Type="HK_SampleWork_2022_DbModel.PortfolioDetails" Role="PortfolioDetails" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolios">
+        <PropertyRef Name="PortfolioId" />
+      </Principal>
+      <Dependent Role="PortfolioDetails">
+        <PropertyRef Name="PortfolioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

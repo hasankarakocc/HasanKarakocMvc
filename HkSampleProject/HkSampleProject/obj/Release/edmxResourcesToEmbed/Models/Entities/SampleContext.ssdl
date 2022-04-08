@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HK_SampleWork_2022_DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Abouts">
+    <Key>
+      <PropertyRef Name="AboutsId" />
+    </Key>
+    <Property Name="AboutsId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="800" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactSets">
+    <Key>
+      <PropertyRef Name="SetId" />
+    </Key>
+    <Property Name="SetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OtherContacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PortfolioCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PortfolioDetails">
+    <Key>
+      <PropertyRef Name="PortfolioId" />
+    </Key>
+    <Property Name="PortfolioId" Type="int" Nullable="false" />
+    <Property Name="Header" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProjectUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Portfolios">
+    <Key>
+      <PropertyRef Name="PortfolioId" />
+    </Key>
+    <Property Name="PortfolioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CategoryId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'HK_SampleWork_2022_Db.dbo.PricingOffers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PricingOffers">
+          <Property Name="asdf" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+  <EntityType Name="Pricings">
+    <Key>
+      <PropertyRef Name="PricingId" />
+    </Key>
+    <Property Name="PricingId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Offers" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PortfolioDetails_Portfolios">
+    <End Role="Portfolios" Type="Self.Portfolios" Multiplicity="1" />
+    <End Role="PortfolioDetails" Type="Self.PortfolioDetails" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolios">
+        <PropertyRef Name="PortfolioId" />
+      </Principal>
+      <Dependent Role="PortfolioDetails">
+        <PropertyRef Name="PortfolioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Portfolios_PortfolioCategories">
+    <End Role="PortfolioCategories" Type="Self.PortfolioCategories" Multiplicity="1" />
+    <End Role="Portfolios" Type="Self.Portfolios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PortfolioCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Portfolios">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HK_SampleWork_2022_DbModelStoreContainer">
+    <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactSets" EntityType="Self.ContactSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OtherContacts" EntityType="Self.OtherContacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PortfolioCategories" EntityType="Self.PortfolioCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PortfolioDetails" EntityType="Self.PortfolioDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Portfolios" EntityType="Self.Portfolios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pricings" EntityType="Self.Pricings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PortfolioDetails_Portfolios" Association="Self.FK_PortfolioDetails_Portfolios">
+      <End Role="Portfolios" EntitySet="Portfolios" />
+      <End Role="PortfolioDetails" EntitySet="PortfolioDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Portfolios_PortfolioCategories" Association="Self.FK_Portfolios_PortfolioCategories">
+      <End Role="PortfolioCategories" EntitySet="PortfolioCategories" />
+      <End Role="Portfolios" EntitySet="Portfolios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

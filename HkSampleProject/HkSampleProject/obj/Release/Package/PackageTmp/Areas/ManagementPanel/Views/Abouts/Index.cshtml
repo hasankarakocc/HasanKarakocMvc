@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HkSampleProject.Models.Entities.Abouts>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>Hakkımızda</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",null,new {@class="btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@item.Image" alt="img" style="height:25%;width:25%" />
+        </td>
+        <td>
+           @Html.Raw(item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AboutsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AboutsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AboutsId })
+        </td>
+    </tr>
+}
+
+</table>

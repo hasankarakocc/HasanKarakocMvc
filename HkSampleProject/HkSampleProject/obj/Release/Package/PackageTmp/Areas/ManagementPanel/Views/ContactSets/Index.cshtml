@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HkSampleProject.Models.Entities.ContactSets>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>Temel İletişim Bilgileri</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SetId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SetId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SetId })
+        </td>
+    </tr>
+}
+
+</table>

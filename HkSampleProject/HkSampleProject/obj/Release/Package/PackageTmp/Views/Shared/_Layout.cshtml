@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Day Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Content/img/favicon.png" rel="icon">
+    <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+
+    <link href="~/Content/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    <!-- Template Main CSS File -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Day - v4.7.0
+    * Template URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    @Html.Partial("_TopBar")
+
+    <!-- ======= Header ======= -->
+    @Html.Partial("_Header")<!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    @RenderBody()
+    <!-- End #main -->
+    <!-- ======= Footer ======= -->
+    @Html.Partial("_Footer")
+    <!-- End Footer -->
+
+    @*<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>*@
+
+    @RenderSection("PageScripts", false);
+
+</body>
+</html>

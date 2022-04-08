@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HK_SampleWork_2022_DbModelStoreContainer" CdmEntityContainer="SampleContext">
+    <EntitySetMapping Name="Abouts">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.Abouts">
+        <MappingFragment StoreEntitySet="Abouts">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="AboutsId" ColumnName="AboutsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactSets">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.ContactSets">
+        <MappingFragment StoreEntitySet="ContactSets">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SetId" ColumnName="SetId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherContacts">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.OtherContacts">
+        <MappingFragment StoreEntitySet="OtherContacts">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioCategories">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.PortfolioCategories">
+        <MappingFragment StoreEntitySet="PortfolioCategories">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioDetails">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.PortfolioDetails">
+        <MappingFragment StoreEntitySet="PortfolioDetails">
+          <ScalarProperty Name="ProjectUrl" ColumnName="ProjectUrl" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Portfolios">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.Portfolios">
+        <MappingFragment StoreEntitySet="Portfolios">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pricings">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.Pricings">
+        <MappingFragment StoreEntitySet="Pricings">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Offers" ColumnName="Offers" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PricingId" ColumnName="PricingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="HK_SampleWork_2022_DbModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
